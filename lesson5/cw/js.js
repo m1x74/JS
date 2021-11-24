@@ -70,10 +70,10 @@
 // let f=(bbc)=>{
 //     let b=0;
 //     for (let i = 0; i < bbc.length; i++) {
-//         b+=bbc[i]/bbc.length;
+//         b+=bbc[i];
 //
 //     }
-//     return b;
+//     return b/bbc.length;
 // }
 //
 // console.log(f(a))
