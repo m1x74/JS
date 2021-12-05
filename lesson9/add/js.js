@@ -236,7 +236,9 @@
 // Створити під кожен елемент окремий блок. В цьому блоці, під кожну властивість, та властивості внутрішніх об'єктів створити свої окремі блок.
 for (let user of usersList) {
     let guy=document.createElement('div');
-    guy.classList.add('User')
+    guy.classList.add('User');
+    guy.style.marginLeft='50px';
+    guy.style.marginTop='70px';
     let id=document.createElement('p');
     id.classList.add('id')
     id.innerHTML=user.id;
@@ -249,32 +251,71 @@ for (let user of usersList) {
     let email=document.createElement('p');
     email.classList.add('email')
     email.innerHTML=user.email;
-    for (let item of user.address) {
-        let address=document.createElement('div');
-        let street=document.createElement('p');
-        street.classList.add('street')
-        street.innerHTML=item.street;
-        let suite=document.createElement('p');
-        suite.classList.add('suite')
-        suite.innerHTML=item.suite;
-        let city=document.createElement('p');
-        city.classList.add('city')
-        city.innerHTML=item.city;
-        let zipcode=document.createElement('p');
-        zipcode.classList.add('zipcode')
-        zipcode.innerHTML=item.zipcode;
-        guy.appendChild(address);
-        address.appendChild(street);
-        address.appendChild(suite);
-        address.appendChild(city);
-        address.appendChild(zipcode);
-        guy.appendChild(address);
+    let address=document.createElement('div');
+    address.classList.add('address');
+    let street=document.createElement('p');
+    street.classList.add('street');
+    street.innerHTML=user.address.street;
+    let suite=document.createElement('p');
+    suite.classList.add('suite');
+    suite.innerHTML=user.address.suite;
+    let city=document.createElement('p');
+    city.classList.add('city');
+    city.innerHTML=user.address.city;
+    let zipcode=document.createElement('p');
+    zipcode.classList.add('zipcode')
+    zipcode.innerHTML=user.address.zipcode;
+    let geo=document.createElement('div');
+    geo.classList.add('geo')
+    let lat=document.createElement('p');
+    lat.classList.add('lat')
+    lat.innerHTML=user.address.geo.lat;
+    let lng=document.createElement('p');
+    lng.classList.add('lng')
+    lng.innerHTML=user.address.geo.lng;
+    let phone=document.createElement('p');
+    phone.classList.add('phone')
+    phone.innerHTML=user.phone;
+    let website=document.createElement('p');
+    website.classList.add('website')
+    website.innerHTML=user.website;
+    let company=document.createElement('div');
+    company.classList.add('company')
+    let cname=document.createElement('p');
+    cname.classList.add('cname')
+    cname.innerHTML=user.company.cname;
+    let  catchPhrase=document.createElement('p');
+    catchPhrase.classList.add('catchPhrase')
+    catchPhrase.innerHTML=user.company.catchPhrase;
+    let  bs=document.createElement('p');
+    bs.classList.add('bs')
+    bs.innerHTML=user.company.bs;
 
-    }
+
+
+
+
+
+
     guy.appendChild(id);
     guy.appendChild(name);
     guy.appendChild(username);
     guy.appendChild(email);
+    guy.appendChild(address);
+    address.appendChild(street);
+    address.appendChild(suite);
+    address.appendChild(city);
+    address.appendChild(zipcode);
+    address.appendChild(geo);
+    geo.appendChild(lat);
+    geo.appendChild(lng);
+    guy.appendChild(phone);
+    guy.appendChild(website);
+    guy.appendChild(company);
+    company.appendChild(cname);
+    company.appendChild(catchPhrase);
+    company.appendChild(bs);
+
 
 
     document.body.append(guy);
