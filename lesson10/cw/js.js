@@ -123,7 +123,7 @@ but.innerText = 'Проверить слово';
 inp.type = 'text';
 document.body.append(inp, but);
 but.addEventListener('click',function () {
-    let flag = 0
+    let flag = 0;
     for (let i = 0; i < array.length; i++) {
         let value = inp.value;
 
@@ -131,7 +131,7 @@ but.addEventListener('click',function () {
             flag=1;}
     }
         if (flag===0){
-            alert('GOOD')
+            alert('GOOD');
         }
         else {
            alert('Не ругайся') ;
@@ -140,6 +140,6 @@ but.addEventListener('click',function () {
 
 
 
-    })
+    });
 
 
