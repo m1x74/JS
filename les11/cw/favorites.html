@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+   let users= JSON.parse(localStorage.getItem('favorite'));
+   for (const user of users) {
+       let a=document.createElement('div');
+       a.innerText=JSON.stringify(user);
+       document.body.append(a);
+
+   }
+
+
+</script>
+</body>
+</html>
