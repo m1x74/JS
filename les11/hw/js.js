@@ -8,7 +8,7 @@ let func=(userName,userAge)=>{
     localStorage.setItem('key',JSON.stringify(object));
 };
 btn.onclick=function () {
-    func(name.value,age.value)
+    func(name.value,age.value);
 }
 
 
