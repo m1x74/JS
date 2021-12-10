@@ -23,14 +23,11 @@ let model=document.form1.model;
 let type=document.form1.type;
 
 let a=(carModel,carType,carVolume)=>{
-    let obj={
-        model:carModel,
-        type:carType,
-        volume:carVolume
-
-    };
-    localStorage.setItem('guest',JSON.stringify(obj));
+    let array=JSON.parse(localStorage.getItem('guest')) || [];
+    array.push({carModel,carType,carVolume});
+    localStorage.setItem('guest',JSON.stringify(array));
 }
 btn1.onclick=(f)=>{
     a(model.value,type.value,volume.value);
 }
+
