@@ -1,0 +1,32 @@
+.product{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    margin-left: 700px;
+    margin-top: 300px;
+
+}
+.product input{
+    margin-left: 20px;
+    height: 30px;
+}
+.product label{
+    font-size: 30px;
+}
+.favor{
+    margin-left: 700px;
+    font-size: 30px;
+
+}
+.wrap{
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+#btn{
+    width: 200px;
+    height: auto;
+    font-size: 20px;
+    margin-left: 700px;
+
+}

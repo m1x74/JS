@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btn{
+            margin-left: 3px;
+            margin-top: 40px;
+            width: 300px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<script>
+    let products=JSON.parse(localStorage.getItem('favorite'));
+    for (const product of products) {
+        let a=document.createElement('div');
+        a.style.display='flex';
+        a.style.flexDirection='column';
+        let nameProd=document.createElement('h1');
+        nameProd.innerText=product.name;
+        let numberProd=document.createElement('h2');
+        numberProd.innerText=`Количество - ${product.number}`;
+        let priceProd=document.createElement('h3');
+        priceProd.innerText=`Цена - ${product.price} UAH`;
+        let pictureProd=document.createElement('img');
+        pictureProd.src=product.picture;
+        pictureProd.style.width='500px'
+        let btn=document.createElement('button');
+        btn.innerText='Удалить из избранного';
+        btn.classList.add('btn');
+        btn.onclick=()=>{
+            let indexOf=products.indexOf(product);
+            console.log(indexOf);
+            products.splice(indexOf,1);
+            console.log(products);
+            localStorage.setItem('favorite',JSON.stringify(products) );
+            a.remove()
+
+        }
+
+
+
+        a.append(nameProd,numberProd,priceProd,pictureProd,btn)
+        document.body.append(a);
+
+    }
+    let clear=document.createElement('button');
+    clear.innerText='Удалить всё';
+    clear.style.fontSize='40px';
+    clear.style.marginTop='40px';
+    clear.style.width='600px';
+    clear.style.background='red';
+    clear.onclick=()=>{
+        localStorage.clear();
+        location.reload();
+    }
+    document.body.append(clear);
+</script>
+</body>
+</html>
