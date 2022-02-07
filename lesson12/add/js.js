@@ -37,6 +37,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
                             wrappost.append(postdiv);
                             if (wrappost.className==='post'){
                                 wrappost.style.display='none';
+
                             }
                             btnuser.onclick=()=>{
                                 wrappost.classList.toggle('block');
@@ -44,6 +45,10 @@ fetch('https://jsonplaceholder.typicode.com/users')
                                     wrappost.style.display='block';
                                 }else {
                                     wrappost.style.display='none';
+
+
+
+
                                 }
                             }
 
@@ -77,6 +82,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
                                                     wrapcom.style.display='none';
                                                 }
                                             }
+
 
 
 
