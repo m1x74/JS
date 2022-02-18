@@ -5,42 +5,42 @@
 // // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
 //
-// function Car(model, company, year, maxspeed, enginevolume){
-//     this.model = model;
-//     this.company = company;
-//     this.year = year;
-//     this.maxspeed = maxspeed;
-//     this.enginevolume = enginevolume;
-// this.drive=function () {
-//     console.log(`На ${this.model} їдемо зі швидкістю ${this.maxspeed} на годину`);
-// }
-//
-// this.info=function (){
-//     for (const key in this) {
-//         if (typeof this[key]!=='function') console.log(`${key} - ${this[key]}`)
-//     }
-// };
-// this.increaseMaxSpeed=function (newSpeed) {
-//     this.maxspeed=this.maxspeed+newSpeed;
-// };
-// this.changeYear=function (newValue) {
-//     this.year=newValue;
-// };
-// this.addDriver = function (driver) {
-//         this.driver = driver;
-//     };
-// }
-//
-// let elantra = new Car('Elantra', 'Hyundai', 2021, 203,2);
-// console.log(elantra);
-// elantra.drive();
-// elantra.info();
-// elantra.increaseMaxSpeed(20);
-// elantra.drive();
-// elantra.changeYear(2023);
-// elantra.info();
-// elantra.addDriver('Stas');
-// console.log(elantra);
+function Car(model, company, year, maxspeed, enginevolume){
+    this.model = model;
+    this.company = company;
+    this.year = year;
+    this.maxspeed = maxspeed;
+    this.enginevolume = enginevolume;
+this.drive=function () {
+    console.log(`На ${this.model} їдемо зі швидкістю ${this.maxspeed} на годину`);
+}
+
+this.info=function (){
+    for (const key in this) {
+        if (typeof this[key]!=='function') console.log(`${key} - ${this[key]}`)
+    }
+};
+this.increaseMaxSpeed=function (newSpeed) {
+    this.maxspeed=this.maxspeed+newSpeed;
+};
+this.changeYear=function (newValue) {
+    this.year=newValue;
+};
+this.addDriver = function (driver) {
+        this.driver = driver;
+    };
+}
+
+let elantra = new Car('Elantra', 'Hyundai', 2021, 203,2);
+console.log(elantra);
+elantra.drive();
+elantra.info();
+elantra.increaseMaxSpeed(20);
+elantra.drive();
+elantra.changeYear(2023);
+elantra.info();
+elantra.addDriver('Stas');
+console.log(elantra);
 
 // - (Те саме, тільки через клас)
 // class Car{
