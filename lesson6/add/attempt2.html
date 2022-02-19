@@ -18,7 +18,18 @@
     // }
     //
     // console.log(f('наслаждение',3))
-
+    // - Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.
+    // document.writeln(cutString('наслаждение',3)) // [нас,лаж,ден,ие]
+    // let f=(str,n)=>{
+    //     let final =[]
+    //     for (let i = 0; i < str.length; i+=n) {
+    //         let a=str.substr(i,n);
+    //         final.push(a);
+    //
+    //     }
+    //     return final
+    // }
+    // console.log(f('наслаждение', 3));
 
     //
     // - Створити функцію-валідатор для адрес електронної пошти. Перевірка повинна включати в себе :данні до знака равлика(@), наявність равлика, крапку яка знаходиться не меньше ніж на 2 символ далі після равлика, функція не чутлива до регістру (some@email.com,SOME@EMAIL.COM,some@EMAIL.com, і тд - однакові значення)
@@ -42,6 +53,25 @@
     // console.log(looksLikeMail('someeMAIL@i.ua'))
     // console.log(looksLikeMail('some.email@gmail.com'))
 
+
+    // - Створити функцію-валідатор для адрес електронної пошти. Перевірка повинна включати в себе :данні до знака равлика(@), наявність равлика, крапку яка знаходиться не меньше ніж на 2 символ далі після равлика, функція не чутлива до регістру (some@email.com,SOME@EMAIL.COM,some@EMAIL.com, і тд - однакові значення)
+    // Протестувати на значеннях
+    // someemail@gmail.com
+    // someeMAIL@gmail.com
+    // someeMAIL@i.ua
+    // some.email@gmail.com
+    // let f=(email)=>{
+    //     let ravl=email.indexOf('@');
+    //     console.log(ravl);
+    //    let first= email.split('@');
+    //    console.log(first);
+    //    let abc=first[0];
+    //    let krapka= first[1].indexOf('.');
+    //     console.log(krapka)
+    //     return(ravl!==-1&&abc.length>1&&krapka>2)
+    //
+    // }
+    // console.log(f('someemail@gmail.com'));
 
 
     // Примітка
@@ -117,15 +147,34 @@
             modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
         }
     ];
-
+// let f=(array)=>{
+//     return array.sort((a,b)=>b.modules.length-a.modules.length)
+// }
+//     console.log(f(coursesArray));
 
     // відсортувати його в спадаючому порядку за кількістю елементів в полі modules
     // let f=(arr)=>{
     //     return arr.sort((a,b)=>b.modules.length-a.modules.length);
     // }
     // console.log(f(coursesArray));
+    // - Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
+    //     let symb = "о", str = "Астрономия это наука о небесных объектах";
+    // document.writeln(count(str, symb)) // 5
+    let count=(str,search)=>{
+        let find=str.split(search);
+        console.log(find)
+        return find.length-1;
+    }
+    console.log(count('Астрономия это наука о небесных объектах','о'))
 
 
+    // - Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
+    //     let str = "Сила тяжести приложена к центру масс тела";
+    // document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'
+   let f=(str,n)=>{
+        return str.split(' ').splice(0,n).join(' ')
+   }
+    console.log(f('Сила тяжести приложена к центру масс тела',6))
     // - Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
     //     let symb = "о", str = "Астрономия это наука о небесных объектах";
     // document.writeln(count(str, symb)) // 5
