@@ -2,7 +2,7 @@
 // - Напишіть код,  який за допомоги document.getElementById або document.getElementsByClassName або document.getElementsByTagName :
 // -- отримує текст з параграфа з id "content"
 let content = document.getElementById('content');
-console.log(content.innerText);
+console.log(content);
 
 // -- отримує текст з блоку з id "rules"
 let rules = document.getElementById('rules');
