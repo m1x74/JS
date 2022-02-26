@@ -1,5 +1,8 @@
 // - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
 //
+
+
+
 // let a= document.createElement('div');
 // a.id='text';
 // a.innerText='crufhrufhrhfurhfurf';
