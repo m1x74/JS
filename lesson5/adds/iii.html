@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+            margin-left: 240px;
+            font-size: 90px;
+        }
+        .s{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<h1 class="s">РОСТИК</h1>
+<h1 class="s">ЁБАНЫЙ</h1>
+<h1 class="s">ГЕЙ</h1>
+<script>
+
+    document.addEventListener("click", function () {
+        let a = document.getElementsByClassName('s')[0];
+        a.classList.remove('s')
+    })
+
+</script>
+</body>
+</html>

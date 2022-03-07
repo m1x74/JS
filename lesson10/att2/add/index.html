@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .lol{
+            width: 300px;
+            height: 200px;
+            background: black;
+        }
+        .kek{
+            width: 40px;
+            height: 250px;
+            background: red;
+        }
+        #f1{
+            display: flex;
+            align-items: center;
+        }
+        .wrap{
+            display: flex;
+            flex-direction: column;
+        }
+        .wrap div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+    </style>
+</head>
+<body>
+<!--<div class="lol"></div>-->
+<!--<div class="kek"></div>-->
+
+<form action="/action" id="f1">
+    <h3>Статус false:</h3>
+    <input type="checkbox" name="status">
+    <h3>Кому 29 лет:</h3>
+    <input type="checkbox" name="age">
+    <h3>Кто из Киева:</h3>
+    <input type="checkbox" name="city">
+    <button>FILTER</button>
+</form>
+
+
+
+
+<script src="js.js"></script>
+</body>
+</html>

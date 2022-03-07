@@ -20,30 +20,30 @@
 //     let a = document.getElementsByClassName('popup')[0].classList.toggle('showpopup');
 //
 // })
-// let b = document.createElement('div');
-// let flag=true ;
-// document.addEventListener('click', function (e) {
-//
-//
-//     if (flag){
-//         b.style.display='none';
-//
-//     } else {
-//         b.style.display='block';
-//         b.classList.add('ppop');
-//         b.style.position = 'absolute';
-//         b.style.top = '300px';
-//         b.style.left = '700px';
-//         b.style.background = 'black';
-//         b.style.color = 'red';
-//         b.style.fontSize = '35px';
-//         document.body.append(b);
-//         b.innerText = 'Class:' + e.target.className + ' ' + 'Id:' + e.target.id + ' ' + 'Tag:' + e.target.tagName + ' ' + 'Width:' + e.target.offsetWidth + ' ' + 'Height:' + e.target.offsetHeight;
-//
-//
-//     }
-//     flag=!flag;
-// })
+let b = document.createElement('div');
+let flag=true ;
+document.addEventListener('click', function (e) {
+
+
+    if (flag){
+        b.style.display='none';
+
+    } else {
+        b.style.display='block';
+        b.classList.add('ppop');
+        b.style.position = 'absolute';
+        b.style.top = '300px';
+        b.style.left = '700px';
+        b.style.background = 'black';
+        b.style.color = 'red';
+        b.style.fontSize = '35px';
+        document.body.append(b);
+        b.innerText = 'Class:' + e.target.className + ' ' + 'Id:' + e.target.id + ' ' + 'Tag:' + e.target.tagName + ' ' + 'Width:' + e.target.offsetWidth + ' ' + 'Height:' + e.target.offsetHeight;
+
+
+    }
+    flag=!flag;
+})
 
 
 // -- взять массив пользователей
@@ -106,7 +106,7 @@ filter.onsubmit = function (e) {
 
     let finish = usersWithAddress.filter(obj => status().includes(obj) && age().includes(obj) && city().includes(obj));
     let tabl = document.createElement('div');
-    tabl.classList.add('wrap')
+    tabl.classList.add('wrap');
     for (const element of finish) {
         let block = document.createElement('div')
         for (const elementField in element) {
