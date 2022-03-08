@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    let a=JSON.parse(localStorage.getItem('favorites'))
+    console.log(a)
+    for (let i = 0; i < a.length; i++) {
+       let div = document.createElement('div');
+       div.style.margin='30px'
+        div.innerHTML=a[i];
+       document.body.append(div)
+    }
+</script>
+</body>
+</html>
