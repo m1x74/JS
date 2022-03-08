@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<button id="clear">ОЧИСТИТЬ КОРЗИНУ</button>
+
 
 <script>
     let a=JSON.parse(localStorage.getItem('favorites'))
@@ -15,11 +15,6 @@
        div.style.margin='30px'
         div.innerHTML=a[i];
        document.body.append(div)
-    }
-    clear=document.getElementById('clear');
-    clear.onclick=function () {
-        localStorage.clear()
-        location.reload()
     }
 </script>
 </body>
