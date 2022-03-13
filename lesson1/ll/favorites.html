@@ -2,20 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>МАГАЗИН ЛЮБИМЫХ ДЕВОЧЕК</title>
+    <style>
+        #clear{
+            background: pink;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-
+<button id="clear">ОЧИСТИТЬ КОРЗИНУ ЛЮБИМЫХ ДЕВОЧЕК</button>
 
 <script>
     let a=JSON.parse(localStorage.getItem('favorites'))
     console.log(a)
-    for (let i = 0; i < a.length; i++) {
-       let div = document.createElement('div');
-       div.style.margin='30px'
-        div.innerHTML=a[i];
-       document.body.append(div)
+    for (const aElement of a) {
+        let div = document.createElement('div');
+        div.style.margin='30px'
+        div.style.fontSize='30px'
+        let uspic=document.createElement('img');
+        uspic.src=aElement.pic;
+        uspic.style.width='250px';
+        uspic.style.height='300px';
+        div.innerHTML=aElement.usR;
+
+        document.body.append(div,uspic)
     }
+    let clear=document.getElementById('clear');
+    clear.onclick=function () {
+        localStorage.clear()
+        location.reload()
+    }
+
 </script>
 </body>
 </html>

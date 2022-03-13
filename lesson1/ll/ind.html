@@ -2,43 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>МАГАЗИН ЛЮБИМЫХ ДЕВОЧЕК</title>
+    <style>
+        .aa{
+            margin-left: 700px;
+            font-size: 30px;
+            border: solid pink 5px;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
 </head>
 <body>
-<a href="favorites.html">GO TO FAVORITES</a>
+<a class="aa" href="favorites.html">ПЕРЕЙТИ В КОРЗИНУ НАТАШ</a>
 <script>
     // є масив -
     let users = [
-        {name: 'vasya', age: 31, status: false},
-        {name: 'petya', age: 30, status: true},
-        {name: 'kolya', age: 29, status: true},
-        {name: 'olya', age: 28, status: false},
-        {name: 'max', age: 30, status: true},
-        {name: 'anya', age: 31, status: false},
-        {name: 'oleg', age: 28, status: false},
-        {name: 'andrey', age: 29, status: true},
-        {name: 'masha', age: 30, status: true},
-        {name: 'olya', age: 31, status: false},
-        {name: 'max', age: 31, status: true}
+        {name: 'Обычная',  photo: 'https://sun9-80.userapi.com/impg/39ZCC51lgeRZSWjZVRw35G3phVuSpc43MYM4dA/QOV9k-mEsN8.jpg?size=918x1688&quality=95&sign=b38af9a50e17d7ff2860b2213d9bff0a&type=album'},
+        {name: 'Веселая',  photo: 'https://sun9-43.userapi.com/impg/yi5pFFJBn0-LCxQy1r2REAL0uVhDrUt2zEV8PA/-kxGRmnLYQ8.jpg?size=718x1188&quality=95&sign=28684cbe507e9b02b2f400fad0717c72&type=album'},
+        {name: 'Игривая',  photo: 'https://sun9-26.userapi.com/impg/AZ_wXm_1TviPXfrwYyHq5vV2u4fK6GkXi0e5pA/pyZxHaiAhBU.jpg?size=772x1688&quality=95&sign=7c04153c75e796295776040fd8cd3841&type=album'},
+        {name: 'Сексуальная',  photo: 'https://sun9-20.userapi.com/impg/1wFPPw3ZEkeeQk46e3xyNxebcJOu5IEh2Qxgww/zqt2nvdKhw4.jpg?size=780x1688&quality=95&sign=3e238aab7381afdcbc1513e26a11bf29&type=album'},
+        {name: 'Романтичная',  photo: 'https://sun9-36.userapi.com/impg/F1uwwXtz5MlEuYzVsZClHPwlQLY__T4ElEJC-A/nRjwPl_p-SM.jpg?size=755x581&quality=96&sign=a11dc9d64b6d3cacda124524231fcf03&type=album'}
     ];
     // створити під кожен об'єкт свій блок з конопкою "додати до улюблених" при натисканні на яку об'єкт потрапляє до масиву favorites улюблених обраних об'єктів в локальному сховищі.
     // Створити сторніку favorites.html при переході на яку потрібно вивест в документ всіх обраних на попередньому етапі.
     for (const user of users) {
         let userDiv = document.createElement('div');
+        userDiv.style.display='flex';
+        userDiv.style.flexDirection='column';
         let userInfo=document.createElement('div');
-        userInfo.innerHTML=user.name + " " + user.age + ' ' + user.status;
+        userInfo.innerHTML=user.name;
+        userInfo.style.fontSize='30px'
+        let uspic=document.createElement('img');
+        uspic.src=user.photo;
+        uspic.style.width='250px';
+        uspic.style.height='300px';
         userDiv.style.margin = '30px';
-        userDiv.style.display = 'flex';
         let btn = document.createElement('button');
-        btn.innerText = 'Add to favorites';
-        btn.style.marginLeft = '20px';
-        let func=(usR)=>{
+        btn.innerText = 'Добавить в корзину';
+        btn.style.marginTop = '20px';
+        btn.style.background = 'pink';
+        btn.style.fontSize = '20px';
+        btn.style.width = '250px';
+        btn.style.cursor = 'pointer';
+        let func=(usR,pic)=>{
             let array=JSON.parse(localStorage.getItem('favorites'))||[];
-            array.push(usR);
+            array.push({usR,pic});
             localStorage.setItem('favorites',JSON.stringify(array))
         }
         btn.onclick=function () {
-            func(userInfo.innerText)
+            func(userInfo.innerText,user.photo)
         }
 
 
@@ -49,7 +62,7 @@
 
 
         document.body.append(userDiv);
-        userDiv.append(userInfo,btn);
+        userDiv.append(userInfo,uspic,btn);
     }
 
 
