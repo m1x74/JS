@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Details</title>
+    <style>
+        .posts{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 199px;
+            height: 100px;
+            position: relative;
+            border: solid black 1px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .combtn{
+            position: absolute;
+            bottom: 0;
+            font-weight: bold;
+            background: #c44c4c;
+            cursor: pointer;
+        }
+        #post{
+            justify-content: center;
+            width: 90%;
+            flex-wrap: wrap;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+
+        }
+        .wrap{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .user{
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .adr{
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+        }
+        .adrbtn,.pbtn{
+            height: 30px;
+            font-weight: bold;
+            background: #c44c4c;
+            cursor: pointer;
+        }
+        .pbtn{
+            height: 60px;
+            width: 90%;
+            margin-top: 150px;
+            margin-left: 5%;
+        }
+        .pwb{
+            display: flex; align-items: center;
+            column-gap: 10px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let wrap = document.createElement('div')
+    wrap.classList.add('wrap');
+    document.body.append(wrap)
+    let userinfo= JSON.parse(localStorage.getItem('user'));
+   let user=document.createElement('div');
+   user.classList.add('user');
+   user.innerHTML=`<h2>${userinfo.id}. ${userinfo.name}</h2>
+<h3>Nikname: ${userinfo.username}</h3>
+<h4>Email: ${userinfo.email}</h4
+<h4>Phone: ${userinfo.phone}</h4>
+<h4>Website: ${userinfo.website}</h4>`;
+   let company=document.createElement('div');
+   company.innerHTML=
+       `<p>Company Name: ${userinfo.company.name}</p>
+            <p>Phrase: ${userinfo.company.catchPhrase}</p>
+            <p>BS: ${userinfo.company.bs}</p>`
+   let adr=document.createElement('div');
+   adr.classList.add('adr')
+   let adrbtn=document.createElement('button');
+   adrbtn.innerText='Check Address';
+   adrbtn.classList.add('adrbtn');
+   adr.innerHTML=`<h4>Adress: </h4>`;
+   let address=document.createElement('div');
+   address.classList.add('address');
+   address.style.display='none'
+   address.innerHTML=
+       `<p>Street: ${userinfo.address.street}</p>
+            <p>Suite: ${userinfo.address.suite}</p>
+            <p>City: ${userinfo.address.city}</p>
+            <p>ZIP: ${userinfo.address.zipcode}</p>`
+
+   adrbtn.addEventListener('click',function () {
+       address.classList.toggle('show');
+       if (address.className.includes('show')){
+           address.style.display='block';
+           adrbtn.innerText='Hide Address';
+       }else{
+           address.style.display='none';
+           adrbtn.innerText='Check Address';
+       }
+   })
+
+   let pbtn=document.createElement('button');
+   pbtn.innerText='Post of current user';
+   pbtn.classList.add('pbtn');
+    wrap.append(user);
+    user.append(company,adr,address);
+
+    adr.append(adrbtn);
+    document.body.append(pbtn)
+    fetch('https://jsonplaceholder.typicode.com/posts').then((check)=>check.json())
+        .then((check)=>{
+            let post=document.createElement('div');
+            post.id='post'
+            document.body.append(post);
+            for (const postElement of check) {
+                if (postElement.userId===userinfo.id){
+                    let postdiv=document.createElement('div');
+                    postdiv.classList.add('posts');
+                    post.style.display='none'
+                    postdiv.style.margin='10px'
+                    postdiv.innerHTML=`${postElement.id}) ${postElement.title}`;
+                    post.append(postdiv);
+                    pbtn.onclick=function () {
+                        post.classList.toggle('show');
+                        if (post.className.includes('show')){
+                            post.style.display='flex';
+                            pbtn.innerText='Hide Posts';
+                        }else{
+                            post.style.display='none';
+                            pbtn.innerText='Show Posts';
+                        }
+                        location.href=`#post`
+                    }
+                    let combtn=document.createElement('button');
+                    combtn.classList.add('combtn');
+                    combtn.innerText='Show Comments';
+                    postdiv.append(combtn);
+
+                }
+
+            }
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
