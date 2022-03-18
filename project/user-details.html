@@ -146,6 +146,10 @@
                     combtn.classList.add('combtn');
                     combtn.innerText='Show Comments';
                     postdiv.append(combtn);
+                    combtn.onclick=function () {
+                        location.href='post-details.html';
+                        localStorage.setItem('post',JSON.stringify(postElement))
+                    }
 
                 }
 

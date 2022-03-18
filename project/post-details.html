@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap {
+            margin: auto;
+            width: 1200px;
+            background: #b0afaf;
+        }
+
+        .name {
+            width: 200px;
+            margin: auto;
+            margin-top: 50px;
+
+        }
+        .com{
+
+            margin: auto;
+            margin-top: 50px;
+            width: 1200px;
+        }
+        .commentar{
+            border: 1px solid #b0afaf;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let wrap = document.createElement('div')
+    wrap.classList.add('wrap');
+
+    let postinfo = JSON.parse(localStorage.getItem('post'));
+    let post = document.createElement('div');
+    post.classList.add('user');
+    post.innerHTML = `<h2>USER: ${postinfo.userId}</h2>
+   <h3>Post: ${postinfo.id}</h3>
+<h3>Title: ${postinfo.title}</h3>
+<p>Body: "${postinfo.body}"</p`;
+    let name = document.createElement('h2');
+    name.classList.add('name');
+    name.innerText = 'COMMENTARS'
+    document.body.append(wrap, name);
+    wrap.append(post);
+    fetch('https://jsonplaceholder.typicode.com/comments')
+        .then((response) => response.json())
+        .then((json) => {
+            let com = document.createElement('div');
+            com.classList.add('com')
+            document.body.append(com);
+            for (const comElement of json) {
+                if (comElement.postId === postinfo.id) {
+                    let comdiv = document.createElement('div');
+                    comdiv.classList.add('commentar');
+                    comdiv.innerHTML = `<h2>${comElement.id}) ${comElement.name}</h2>
+                                           <h3>Email: ${comElement.email}</h3>
+                                           <p>Body:"${comElement.body}"</p>`;
+                    com.append(comdiv);
+
+                }
+            }
+        })
+
+
+</script>
+</body>
+</html>
