@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .form1,.favor{
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+            font-size: 35px;
+            margin-left: 750px;
+            margin-top: 150px;
+
+        }
+        #name,#num,#cost,#pic,#but{
+            width: 200px;
+            height: 40px;
+        }
+        #but{
+            margin-top: 15px;
+            background: red;
+            font-size: 20px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+<form action="" class="form1" name="products">
+    <label for="name">Название</label><input type="text" name="name" id="name">
+    <label for="num">Количество</label><input type="number" name="num" id="num">
+    <label for="cost">Цена</label><input type="number" name="cost" id="cost">
+    <label for="pic">Картинка</label><input type="text" name="pic" id="pic">
+    <button id="but">ДОБАВИТЬ ТОВАР</button>
+</form>
+<a class="favor" href="list.html">На сторінку товарів</a>
+<script src="script.js"></script>
+</body>
+</html>

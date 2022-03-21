@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .block h2,.block h3{
+            margin-left: 30px;
+        }
+        .clear{
+            background: red;
+            width: 600px;
+            height: 50px;
+            font-size: 30px;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<script>
+   let a=JSON.parse(localStorage.getItem('favorite'));
+   console.log(a);
+   let wrap=document.createElement('div');
+   wrap.classList.add('wrap');
+   document.body.append(wrap);
+   for (const elem of a) {
+       console.log(elem)
+       let block=document.createElement('div');
+       block.style.border='solid black 2px';
+       block.style.width='600px';
+       block.classList.add('block')
+        wrap.append(block)
+       block.innerHTML=`<h2>Название: ${elem.prname}</h2>
+      <h3>Количество: ${elem.prnum}</h3>
+      <h3>Цена: ${elem.prcost}</h3>`
+       let pic=document.createElement('img');
+        pic.src=elem.prpic;
+        pic.style.width='500px';
+       let btn= document.createElement('button');
+       btn.innerText='Удалить товар';
+       btn.style.background='red';
+       btn.style.width='100%';
+       btn.style.height='50px';
+       btn.style.fontSize='20px';
+       btn.style.color='white';
+
+       btn.onclick=function () {
+           let index=a.indexOf(elem);
+           console.log(index);
+           a.splice(index,1);
+           localStorage.setItem('favorite',JSON.stringify(a));
+           location.reload()
+       }
+       block.append(pic,btn);
+
+   }
+   let clear=document.createElement('button');
+   clear.classList.add('clear');
+   clear.innerText='Очистить корзину'
+
+   clear.onclick=function () {
+       localStorage.clear();
+       location.reload();
+   }
+   document.body.append(clear);
+
+
+</script>
+</body>
+</html>
